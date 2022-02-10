@@ -15,6 +15,7 @@ module.exports = {
       'single-spa-vue',
       'vue',
       '@niagahoster/components',
+      /^@niagahoster\/memberarea-mf-.+/,
     ]
   }
 };

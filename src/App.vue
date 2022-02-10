@@ -12,11 +12,16 @@
     <div>
       {{ inputData }}
     </div>
+    <div>
+      <as-button primary rounded @click="jumpToCpanelHandler(105552)">Jump To cPanel</as-button>
+      <as-button primary rounded @click="syncHandler(105552)">Sync</as-button>
+    </div>
   </div>
 </template>
 
 <script>
 import InputForm from "./components/InputForm.vue";
+import { capi } from '@niagahoster/memberarea-mf-shared'
 
 export default {
   name: "App",
@@ -27,9 +32,26 @@ export default {
     const myButtonHandler = () => {
       alert("My Button is Clicked");
     };
+    
+    const jumpToCpanelHandler = (serviceId) => {
+      capi.cpanel.getJumpUrl(serviceId)
+        .then((data) => {
+          console.log(data)
+          window.open(data.url, '_blank')
+        })
+    }
+    
+    const syncHandler = (serviceId) => {
+      capi.imunify.checkBlockedIp(serviceId, '140.213.19.237')
+        .then(data => {
+          console.log(data)
+        })
+    }
 
     return {
       myButtonHandler,
+      jumpToCpanelHandler,
+      syncHandler,
     };
   },
   data() {
