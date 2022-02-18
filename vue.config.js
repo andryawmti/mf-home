@@ -6,7 +6,7 @@ module.exports = {
       .tap(options => ({
         ...options,
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith('as-')
+          isCustomElement: tag => tag.startsWith('-')
         }
       }))
   },
@@ -15,6 +15,7 @@ module.exports = {
       'single-spa-vue',
       'vue',
       '@niagahoster/components',
+      /^@niagahoster\/memberarea-mf-.+/,
     ]
   }
 };
