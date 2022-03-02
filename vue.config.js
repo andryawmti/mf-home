@@ -6,7 +6,7 @@ module.exports = {
       .tap(options => ({
         ...options,
         compilerOptions: {
-          isCustomElement: tag => tag.startsWith('-')
+          isCustomElement: tag => tag.startsWith('as-')
         }
       }))
   },
