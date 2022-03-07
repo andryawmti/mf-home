@@ -9,25 +9,24 @@
       <div class="d-flex justify-content-between as-mt-32">
         <AsInput placeholder="Cari nama website, domain, dan add-on domain . . ." search />
         <AsButtonGroup>
-          <AsButtonOutline @click="changeModeHandler(true)" shade><i class="as-icon-grid"></i></AsButtonOutline>
-          <AsButtonOutline @click="changeModeHandler(false)" shade><i class="as-icon-list"></i></AsButtonOutline>
+          <AsButtonOutline :active="gridMode" @click="changeModeHandler(true)" shade><i class="as-icon-grid"></i></AsButtonOutline>
+          <AsButtonOutline :active="!gridMode" @click="changeModeHandler(false)" shade><i class="as-icon-list"></i></AsButtonOutline>
         </AsButtonGroup>
       </div>
     </AsCardSection>
     <AsCardSection class="as-py-32 as-px-24">
       <AsCardSubSection first>
         <div v-if="gridMode" class="grid">
-          <AsCardService 
-            v-for="n in 10" 
-            :key="n"
-            class="g-col-12 g-col-md-6 g-col-lg-4 g-col-xl-3"
-            expireIn="2 Tahun 5 Bulan"
-            label="Paket VPS Professional"
-            status="Active"
-            title="niagahoster.com"
-            thumbnail="https://source.unsplash.com/248x180/?nature,water"
-            thumbnailAlt="Service VPS"
-          />
+          <a class="g-col-12 g-col-md-6 g-col-lg-4 g-col-xl-3" href="#" v-for="n in 10" :key="n">
+            <AsCardService 
+              expireIn="2 Tahun 5 Bulan"
+              label="Paket VPS Professional"
+              status="Active"
+              title="niagahoster.com"
+              thumbnail="https://source.unsplash.com/248x180/?nature,water"
+              thumbnailAlt="Service VPS"
+            />
+          </a>
         </div>
         <AsTable striped v-else>
           <thead>
